@@ -24,94 +24,82 @@
 
 
 
-<style>
-
-/*======================================
-//--//-->   ABOUT
-======================================*/
-
-.about-mf .box-shadow-full {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+/* Define neon color palette */
+:root {
+  --neon-pink: #FF00FF;
+  --neon-blue: #00FFFF;
+  --neon-yellow: #FFFF00;
+  --neon-green: #00FF00;
+  --dark-bg: #333;
 }
 
-.about-mf .about-img {
-  margin-bottom: 2rem;
-}
-
-.about-mf .about-img img {
-  margin-left: 10px;
-}
-
-
-.skill-mf .progress {
-  /* background-color: #cde1f8; */
-  margin: .5rem 0 1.2rem 0;
-  border-radius: 0;
-  height: .7rem;
-}
-
-.skill-mf .progress .progress-bar {
-  height: .7rem;
-  background-color: #ab20fd;
-}
-
-
-/* Animation styles */
-#typing-animation {
+/* Style the project cards */
+.blog-entry {
+  background-color: var(--dark-bg);
+  border: 2px solid var(--neon-pink);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
-  font-size: 30px;
-  font-weight: bold;
-  color: rgb(255, 255, 255);
-  overflow: hidden;
-  white-space: nowrap;
-  animation: typing 3s steps(20, end) infinite;
 }
 
-#typing-animation:before {
-  content: "";
-  /* position: absolute; */
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  background-color: #ccc;
-  animation: typing-cursor 0.5s ease-in-out infinite;
+/* Hover effect for cards */
+.blog-entry:hover {
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: 0 0 20px var(--neon-pink);
 }
 
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
+/* Enhance image zoom effect */
+.block-20 {
+  transition: transform 0.5s ease;
+  width: 100%;
+  height: 200px; /* Adjust based on your design */
+  background-size: cover;
 }
 
-@keyframes typing-cursor {
-  from {
-    width: 5px;
-  }
-  to {
-    width: 0;
-  }
+/* Image animation on hover */
+.blog-entry:hover .block-20 {
+  transform: scale(1.2) rotate(5deg);
 }
 
-
-/* project image zoom effect */
-
-.zoom-effect {
-  overflow: hidden;
-  transition: transform 0.3s ease-out;
+/* Text styling and animation */
+.text {
+  color: var(--neon-blue);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  padding: 15px;
 }
 
-.zoom-effect:hover {
-  transform: scale(1.1);
+/* Text animation on hover */
+.blog-entry:hover .text {
+  opacity: 1;
+  transform: translateY(0);
 }
 
+/* Style project titles/links */
+h3.heading a {
+  color: var(--neon-yellow);
+  text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
 
-</style>
+/* Hover effect for project titles/links */
+h3.heading a:hover {
+  color: var(--neon-green);
+  text-shadow: 0 0 10px var(--neon-green);
+}
 
+/* Optional: Add subtle idle animation to cards */
+.blog-entry {
+  animation: subtleGlow 2s infinite ease-in-out;
+}
+
+@keyframes subtleGlow {
+  0% { box-shadow: 0 0 5px var(--neon-pink); }
+  50% { box-shadow: 0 0 15px var(--neon-pink); }
+  100% { box-shadow: 0 0 5px var(--neon-pink); }
+}
 
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
